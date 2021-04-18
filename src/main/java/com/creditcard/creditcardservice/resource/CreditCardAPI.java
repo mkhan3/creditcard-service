@@ -17,6 +17,11 @@ import com.creditcard.creditcardservice.manager.CreditCardManager;
 import com.creditcard.creditcardservice.utility.LuhnAlg;
 import com.creditcard.creditcardservice.valueobject.CreditCardValue;
 
+/**
+ * Credit card rest controller which exposes one get and one post endpoint
+ * @author Administrator
+ *
+ */
 @RestController
 public class CreditCardAPI {
 
@@ -26,11 +31,13 @@ public class CreditCardAPI {
 	@PostMapping("/creditcards")
 	public ResponseEntity<Object> createCreditCard(@Valid @RequestBody CreditCardValue  creditCard) {
 		
+		// validating creditcard number by Luhn10 algorithm
 		if(!LuhnAlg.checkLuhn(creditCard.getCardNumber())) {
 			throw new InvalidCreditCardNumberException(creditCard.getCardNumber() + " - Invalid CreditCard Number");
 		}
 		
 		Long savedCreaditCardId = creditCardManager.saveCreditCard(creditCard);
+		//the uri location for the newly created resource
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(savedCreaditCardId).toUri();
 		return ResponseEntity.created(location).build();
 	}
@@ -40,7 +47,6 @@ public class CreditCardAPI {
 		
 		return ResponseEntity.ok(creditCardManager.getAllCreditCards());
 
-		//return creditCardRepository.findAll();
 	}
 }
 

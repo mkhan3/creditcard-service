@@ -13,7 +13,13 @@ import org.springframework.http.ResponseEntity;
 import com.creditcard.creditcardservice.CreditcardServiceApplication;
 import com.creditcard.creditcardservice.valueobject.CreditCardValue;
 
-
+/**
+ * Integration tests using SpringBootTest. SpringBootTest will load the context for integration testing.
+ * mvn verify - maven command to run these tests by build tool.
+ * 
+ * @author Administrator
+ *
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = CreditcardServiceApplication.class)
 public class IntegrationTests {
 
@@ -56,7 +62,7 @@ public class IntegrationTests {
 	} 
 	
 	@Test
-	public void getTest() {
+	public void getTestStatusCheck() {
 		CreditCardValue creditCrad = new CreditCardValue("", "1234567890123", 0.0, 5000.0);
 		restTemplate.postForEntity("/creditcards", creditCrad, Object.class);
 		ResponseEntity<Object> resEntity = restTemplate.getForEntity("/creditcards", Object.class);

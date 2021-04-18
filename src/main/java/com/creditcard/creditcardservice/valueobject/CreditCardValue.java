@@ -4,6 +4,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * This is a value object. It is used to receive request or generate response for client.
+ * @author Administrator
+ *
+ */
 public class CreditCardValue {
 
 	@NotEmpty(message="nameOnCard cannot be empty")

@@ -2,6 +2,12 @@ package com.creditcard.creditcardservice.exception;
 
 import java.util.Date;
 
+/**
+ * Response message structure for Exception.
+ * 
+ * @author Administrator
+ *
+ */
 public class ExceptionResponse {
 
 	private Date timestamp;

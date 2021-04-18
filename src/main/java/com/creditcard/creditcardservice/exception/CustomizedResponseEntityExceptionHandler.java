@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * Customised Exception handler. Exceptions across controllers will be caught here and corresponding customised 
+ * response will be sent to client.   
+ * @author Administrator
+ *
+ */
+
 @ControllerAdvice
 @RestController
 public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExceptionHandler{

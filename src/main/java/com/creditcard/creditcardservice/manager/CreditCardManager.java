@@ -11,6 +11,13 @@ import com.creditcard.creditcardservice.repository.CreditCardRepository;
 import com.creditcard.creditcardservice.repository.entity.CreditCardEntity;
 import com.creditcard.creditcardservice.valueobject.CreditCardValue;
 
+/**
+ * An extra layer between API and repository. This manager is used to invoke creditcard repositories.
+ * This layer will deal with entities and repositories.
+ * 
+ * @author Administrator
+ *
+ */
 @Component
 public class CreditCardManager {
 	
