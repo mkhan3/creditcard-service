@@ -9,6 +9,7 @@ so it can send customized exception message to client.
 6. To receive client request or generate client response, a valueobject (CreditCardValue) is used. javax.validation.constraints were applied on this valueobject.
 7. CreditCardEntity is an entity object. It has been kept separate from the value object.
 8. After successfully creating Credit card resource, the api will send HTTP.OK response with the location of the newly created resource.
-9. maven-surefire-plugin is used to run integration testing. Unit testing has also been separated from the integration testing . 
+9. maven-surefire-plugin is used to run integration testing. Unit testing has also been separated from the integration testing.
+10. javax.validation has been used to validate user input 
 
  
