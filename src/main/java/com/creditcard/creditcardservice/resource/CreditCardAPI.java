@@ -28,6 +28,11 @@ public class CreditCardAPI {
 	@Autowired
 	private CreditCardManager creditCardManager;
 	
+	/**
+	 * Create credit card with the user given credit card information.
+	 * @param creditCard
+	 * @return ResponseEntity with the location of the newly created resource
+	 */
 	@PostMapping("/creditcards")
 	public ResponseEntity<Object> createCreditCard(@Valid @RequestBody CreditCardValue  creditCard) {
 		
@@ -42,6 +47,10 @@ public class CreditCardAPI {
 		return ResponseEntity.created(location).build();
 	}
 	
+	/**
+	 * 
+	 * @return list of saved credit cards with the http staus OK
+	 */
 	@GetMapping("/creditcards")
 	public ResponseEntity<List<CreditCardValue>> retrieveAllCreditCards() {
 		
